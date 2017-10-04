@@ -43,7 +43,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         i2 = new Intent(this,Activity1.class);
         String ediEdad=et_edad.getText().toString();
-        
+
 
 
 
