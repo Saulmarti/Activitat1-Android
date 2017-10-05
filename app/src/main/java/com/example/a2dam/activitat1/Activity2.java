@@ -1,6 +1,7 @@
 package com.example.a2dam.activitat1;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +29,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         Bundle extras =i.getExtras();
         if (extras != null) {
             String datoNombre=(String)extras.get("nombre");
-            String datoSexo=(String)extras.get("sexo");
 
             benv.setText("Hola "+datoNombre+" indica tu edad");
         };
@@ -39,17 +39,11 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
-        Intent i2;
-
-        i2 = new Intent(this,Activity1.class);
+        Intent data = new Intent();
         String ediEdad=et_edad.getText().toString();
+        data.setData(Uri.parse(ediEdad));
+        setResult(RESULT_OK, data);
 
-
-
-
-       i2.putExtra("edad",ediEdad);
-
-
-        startActivity(i2);
+        finish();
     }
 }

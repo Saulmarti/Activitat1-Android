@@ -14,6 +14,8 @@ public class Activity1 extends AppCompatActivity implements View.OnClickListener
     private EditText et_nombre;
     private Button boton_info;
     TextView textEdad;
+    int request_code = 1;
+
 
 
     @Override
@@ -26,33 +28,25 @@ public class Activity1 extends AppCompatActivity implements View.OnClickListener
         textEdad = (TextView) findViewById(R.id.textEdad);
 
 
-        Intent i2=getIntent();
-        Bundle extras2 =i2.getExtras();
-        if (extras2 != null) {
-            String datoEdad=(String)extras2.get("edad");
-
-            textEdad.setText("Tienes "+datoEdad+" años");
-        };
-
-
-            boton_info.setOnClickListener(this);
-
+        boton_info.setOnClickListener(this);
         }
-        @Override
+
+
         public void onClick(View v) {
 
-            Intent i;
 
-
-            i = new Intent(this,Activity2.class);
+           Intent i = new Intent(this,Activity2.class);
             String ediNombre=et_nombre.getText().toString();
-
-
             i.putExtra("nombre",ediNombre);
 
-
-            startActivity(i);
+            startActivityForResult(i, request_code);
         }
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            // TODO Auto-generated method stub
+            if ((requestCode == request_code) && (resultCode == RESULT_OK)) {
+                textEdad.setText(data.getDataString());
+            }
 
-    }
+        }}
 
