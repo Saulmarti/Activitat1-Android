@@ -45,7 +45,13 @@ public class Activity1 extends AppCompatActivity implements View.OnClickListener
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // TODO Auto-generated method stub
             if ((requestCode == request_code) && (resultCode == RESULT_OK)) {
-                textEdad.setText(data.getDataString());
+                int numero=Integer.parseInt(data.getDataString());
+                if (numero>18 && numero<25)
+                textEdad.setText("Tienes "+data.getDataString()+ " años, ya eres mayor de edad");
+                if (numero>25 && numero<35)
+                    textEdad.setText("Tienes "+data.getDataString()+ " años, estás en la flor de la vida");
+                if (numero>35)
+                    textEdad.setText("Tienes "+data.getDataString()+ " años, ay ay ay");
             }
 
         }}
