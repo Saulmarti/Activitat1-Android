@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -54,5 +55,27 @@ public class Activity1 extends AppCompatActivity implements View.OnClickListener
                     textEdad.setText("Tienes "+data.getDataString()+ " años, ay ay ay");
             }
 
-        }}
+        }
+    public void onRadioButtonClicked(View view) {
+
+        // Is the button now checked?
+
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // hacemos un case con lo que ocurre cada vez que pulsemos un botón
+
+        switch(view.getId()) {
+            case R.id.radioButtonHombre:
+                if (checked)
+                    //
+                    break;
+            case R.id.radioButtonMujer:
+                if (checked)
+                    //
+                    break;
+
+        }
+    }
+
+}
 
